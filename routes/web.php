@@ -10,10 +10,10 @@ Route::get('/about', function () {
     return view('about',['nama' => 'Rizki']);
 });
 
-Route::get('/about', function () {
+Route::get('/blog', function () {
     return view('blog');
 });
-Route::get('/about', function () {
+Route::get('/contact', function () {
     return view('contact');
 });
 

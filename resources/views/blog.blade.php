@@ -8,15 +8,15 @@
 </head>
 <body>
     <h2>judul 1</h2>
-    <a href="">
+    <article>
         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt commodi tempore enim omnis, magni perferendis maiores, 
             nemo beatae iusto sit fugit optio tenetur accusantium quas quis, error cupiditate corporis velit?</h3>
-    </a>
+    </article>
     
     <h2>judul 1</h2>
-    <a href="">
+    <article>
         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt commodi tempore enim omnis, magni perferendis maiores, 
             nemo beatae iusto sit fugit optio tenetur accusantium quas quis, error cupiditate corporis velit?</h3>
-    </a>
+    </article>
 </body>
 </html>
