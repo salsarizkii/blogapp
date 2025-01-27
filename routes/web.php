@@ -11,8 +11,9 @@ Route::get('/about', function () {
 });
 
 Route::get('/blog', function () {
-    return view('blog',['tittle' => 'Blogpage']);
+    return view('blog',['tittle' => 'Blogpage'], );
 });
+
 Route::get('/contact', function () {
     return view('contact',['tittle' => 'Contact Us']);
 });
