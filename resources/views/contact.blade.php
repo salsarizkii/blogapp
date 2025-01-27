@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <a href="instagram.com/salsaa.rs">instagram</a>
-</body>
-</html>
+<x-layout>
+    <x-slot:tittle>{{ $tittle }}</x-slot:tittle>
+    <h3>ini Contact men</h3>
+  </x-layout>
