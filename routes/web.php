@@ -34,7 +34,7 @@ Route::get('/blog', function () {
     ] ]);
 });
 
-Route::get('/blog/{id}', function ($id) {
+Route::get('/blog/{slug}', function ($slug) {
     $blog = [
         [
             'id' => 1,
@@ -57,8 +57,8 @@ Route::get('/blog/{id}', function ($id) {
 
         ];
 
-    $eachblog = Arr::first($blog, function($eachblog) use ($id) {
-        return $eachblog['id'] == $id;
+    $eachblog = Arr::first($blog, function($eachblog) use ($slug) {
+        return $eachblog['slug'] == $slug;
     });
 
     return view('eachblog', ['tittle' => 'single post', 'eachblog' => $eachblog]);
