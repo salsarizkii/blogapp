@@ -2,6 +2,33 @@
 
 use Illuminate\Support\Facades\Route;
 
+class blog 
+{
+    public static function all(){
+        return [
+            [
+                'id' => 1,
+                'slug' => 'this-is-first-blog',
+                'title' => 'This is First blog', 
+                'author' => 'Salsa Rizki',
+                'body' => 'This is body of first blog. Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                Amet explicabo illo possimus assumenda id odio officiis ipsum quisquam molestias 
+                architecto, atque quam? Nihil, error aliquam enim sequi consectetur aut ipsam.'
+            ],
+            [
+                'id' => 2,
+                'slug' => 'this-is-second-blog',
+                'title' => 'This is second blog', 
+                'author' => 'Salsa Rizki',
+                'body' => 'This is body of second blog. Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                Amet explicabo illo possimus assumenda id odio officiis ipsum quisquam molestias 
+                architecto, atque quam? Nihil, error aliquam enim sequi consectetur aut ipsam.'
+            ]
+            ];
+    }
+    
+};
+
 Route::get('/', function () {
     return view('home',['tittle' => 'Homepage']);
 });
@@ -11,53 +38,11 @@ Route::get('/about', function () {
 });
 
 Route::get('/blog', function () {
-    return view('blog',['tittle' => 'Blogpage', 'blog'  => [
-        [
-            'id' => 1,
-            'slug' => 'this-is-first-blog',
-            'title' => 'This is First blog', 
-            'author' => 'Salsa Rizki',
-            'body' => 'This is body of first blog. Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Amet explicabo illo possimus assumenda id odio officiis ipsum quisquam molestias 
-            architecto, atque quam? Nihil, error aliquam enim sequi consectetur aut ipsam.'
-        ],
-        [
-            'id' => 2,
-            'slug' => 'this-is-second-blog',
-            'title' => 'This is second blog', 
-            'author' => 'Salsa Rizki',
-            'body' => 'This is body of second blog. Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Amet explicabo illo possimus assumenda id odio officiis ipsum quisquam molestias 
-            architecto, atque quam? Nihil, error aliquam enim sequi consectetur aut ipsam.'
-        ]
-
-    ] ]);
+    return view('blog',['tittle' => 'Blogpage', 'blog'  => blog::all()]);
 });
 
 Route::get('/blog/{slug}', function ($slug) {
-    $blog = [
-        [
-            'id' => 1,
-            'slug' => 'this-is-first-blog',
-            'title' => 'This is First blog', 
-            'author' => 'Salsa Rizki',
-            'body' => 'This is body of first blog. Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Amet explicabo illo possimus assumenda id odio officiis ipsum quisquam molestias 
-            architecto, atque quam? Nihil, error aliquam enim sequi consectetur aut ipsam.'
-        ],
-        [
-            'id' => 2,
-            'slug' => 'this-is-second-blog',
-            'title' => 'This is second blog', 
-            'author' => 'Salsa Rizki',
-            'body' => 'This is body of second blog. Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Amet explicabo illo possimus assumenda id odio officiis ipsum quisquam molestias 
-            architecto, atque quam? Nihil, error aliquam enim sequi consectetur aut ipsam.'
-        ]
-
-        ];
-
-    $eachblog = Arr::first($blog, function($eachblog) use ($slug) {
+    $eachblog = Arr::first(blog::all(), function($eachblog) use ($slug) {
         return $eachblog['slug'] == $slug;
     });
 
