@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\eachblog;
+use App\Models\Blog;
 
 
 Route::get('/', function () {
@@ -13,15 +13,13 @@ Route::get('/about', function () {
 });
 
 Route::get('/blog', function () {
-    return view('blog',['tittle' => 'Blogpage', 'blog'  => eachblog::all()]);
+    return view('blog',['tittle' => 'Blogpage', 'blog'  =>Blog::all()]);
 });
 
-Route::get('/blog/{slug}', function ($slug) {
-    $eachblog = Arr::first(eachblog::all(), function($eachblog) use ($slug) {
-        return $eachblog['slug'] == $slug;
-    });
+Route::get('/blog/{blog:slug}', function (Blog $blog) {
+    // $eachblog = Blog::find($id);
 
-    return view('eachblog', ['tittle' => 'single post', 'eachblog' => $eachblog]);
+    return view('eachblog', ['tittle' => 'single post', 'eachblog' => $blog]);
 });
 
 
