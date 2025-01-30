@@ -19,7 +19,7 @@ return new class extends Migration
                 table: 'users',
                 indexName: 'blogs_author_id'
             );
-            $table->foreignId('author_id')->constrained(
+            $table->foreignId('category_id')->constrained(
                 table: 'categories',
                 indexName: 'blogs_category_id'
             );

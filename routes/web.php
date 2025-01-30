@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\User;
 
 
@@ -27,6 +28,9 @@ Route::get('/author/{user:username}', function (User $user) {
     return view('blog', ['tittle' => count($user->blog) . ' Articles by ' . $user->name, 'blog' => $user->blog]);
 });
 
+Route::get('/category/{category:slug}', function (Category $category) {
+    return view('blog', ['tittle' =>  'Articles by ' . $category->name, 'blog' => $category->blog]);
+});
 
 Route::get('/contact', function () {
     return view('contact', ['tittle' => 'Contact Us']);

@@ -12,6 +12,6 @@ class Category extends Model
     use HasFactory;
     public function blog(): HasMany
     {
-        return $this->hasMany(Blog::class, 'author_id');
+        return $this->hasMany(Blog::class);
     }
 }
