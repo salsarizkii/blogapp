@@ -23,8 +23,8 @@ Route::get('/blog/{blog:slug}', function (Blog $blog) {
     return view('eachblog', ['tittle' => 'single post', 'eachblog' => $blog]);
 });
 
-Route::get('/author/{user}', function (User $user) {
-    return view('blog', ['tittle' => 'Articles by ' . $user->name, 'blog' => $user->blog]);
+Route::get('/author/{user:username}', function (User $user) {
+    return view('blog', ['tittle' => count($user->blog) . ' Articles by ' . $user->name, 'blog' => $user->blog]);
 });
 
 
