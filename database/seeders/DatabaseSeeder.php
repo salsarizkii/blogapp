@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
+use App\Models\Blog;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +15,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $mine = User::create([
+            'name' => 'John Doe',
+            'username' => 'johndoe', // Fixed typo: 'usernam' -> 'username'
+            'email' => 'john@example.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'),
+            'remember_token' => Str::random(10) // Fixed: 'str_random' -> 'Str::random'
         ]);
+
+        // Ensure factory methods are correct and compatible
+        User::factory(123)->create();
+        Category::factory(7)->create();
+
+        Blog::factory(123)->recycle([
+            User::factory(12)->create(),
+            $mine,
+            Category::factory(7)->create()
+        ])->create();
     }
 }
