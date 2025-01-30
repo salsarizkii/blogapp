@@ -15,23 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $mine = User::create([
-            'name' => 'John Doe',
-            'username' => 'johndoe', // Fixed typo: 'usernam' -> 'username'
-            'email' => 'john@example.com',
-            'email_verified_at' => now(),
-            'password' => bcrypt('password'),
-            'remember_token' => Str::random(10) // Fixed: 'str_random' -> 'Str::random'
-        ]);
 
         // Ensure factory methods are correct and compatible
-        User::factory(123)->create();
-        Category::factory(7)->create();
-
+        $this->call([CategorySeeder::class, UserSeeder::class]);
         Blog::factory(123)->recycle([
-            User::factory(12)->create(),
-            $mine,
-            Category::factory(7)->create()
+            Category::all(),
+            User::all()
         ])->create();
     }
 }
