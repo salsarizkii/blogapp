@@ -16,7 +16,7 @@ Route::get('/about', function () {
 
 Route::get('/blog', function () {
     // $blog = Blog::with('author', 'category')->latest()->get();
-    return view('blog', ['tittle' => 'Blogpage', 'blog'  => $blog]);
+    return view('blog', ['tittle' => 'Blogpage', 'blog'  => Blog::all()]);
 });
 
 Route::get('/blog/{blog:slug}', function (Blog $blog) {
