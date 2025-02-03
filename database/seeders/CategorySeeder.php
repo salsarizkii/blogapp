@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Website Design',
                 'slug' => 'website-design',
-                'color' => 'bg-red-200'
+                'color' => 'bg-red-100'
             ]
         );
 
@@ -26,7 +26,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'UI/UX Design',
                 'slug' => 'UIUX-design',
-                'color' => 'bg-green-200'
+                'color' => 'bg-green-100'
             ]
         );
 
@@ -34,7 +34,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Machine Learning',
                 'slug' => 'machine-learning',
-                'color' => 'bg-blue-200'
+                'color' => 'bg-blue-100'
             ]
         );
 
@@ -42,7 +42,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Mobile Development',
                 'slug' => 'mobile-development',
-                'color' => 'bg-purple-200'
+                'color' => 'bg-purple-100'
             ]
         );
     }

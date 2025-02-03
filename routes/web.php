@@ -5,7 +5,6 @@ use App\Models\Blog;
 use App\Models\Category;
 use App\Models\User;
 
-
 Route::get('/', function () {
     return view('home', ['tittle' => 'Homepage']);
 });
