@@ -14,12 +14,6 @@
                     </a>
                       <span 07 class="text-sm">{{ $eachblog->created_at->diffForHumans() }}</span>
                   </div>
-
-                  <a href="/category/{{ $eachblog->category->slug }}">
-                    <span class="{{ $eachblog->category->color }} text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800 hover:bg-slate-200 hover:underline">
-                        {{ $eachblog->category->name }}
-                    </span>
-                  </a>
                   <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" >
                     <a href="/blog/{{ $eachblog['slug'] }}">{{ $eachblog['title'] }}</a></h2>
                   <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{Str::of($eachblog['body'])->limit(100, preserveWords: true)}}</p>
