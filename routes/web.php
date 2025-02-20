@@ -15,7 +15,13 @@ Route::get('/about', function () {
 
 Route::get('/blog', function () {
     // $blog = Blog::with('author', 'category')->latest()->get();
-    return view('blog', ['tittle' => 'Blogpage', 'blog'  => Blog::all()]);
+    $blog = Blog::latest();
+
+    if (request('search')) {
+        $blog = $blog->where('title', 'like', '%' . request('search') . '%');
+    }
+
+    return view('blog', ['tittle' => 'Blogpage', 'blog'  => $blog->get()]);
 });
 
 Route::get('/blog/{blog:slug}', function (Blog $blog) {
