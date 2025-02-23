@@ -18,7 +18,7 @@ Route::get('/blog', function () {
     $blog = Blog::latest();
 
     if (request('search')) {
-        $blog = $blog->where('title', 'like', '%' . request('search') . '%');
+        $blog->where('title', 'like', '%' . request('search') . '%');
     }
 
     return view('blog', ['tittle' => 'Blogpage', 'blog'  => $blog->get()]);
