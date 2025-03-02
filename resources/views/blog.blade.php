@@ -22,8 +22,9 @@
               <button type="search" class="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Search</button>
           </div>
       </div>
+   {{ $blog->links() }}
   </form>
-      <div class="py-4 px-4 mx-auto max-w-screen-xl lg:py-8 lg:px-6">
+      <div class="my-4 py-4 px-4 mx-auto max-w-screen-xl lg:py-8 lg:px-6">
           <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2">
     @forelse ($blog as $eachblog)
               <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -54,6 +55,7 @@
                       </a>
                   </div>
               </article>  
+    
     @empty
     <div>
       <p class="font-semibold text-xl my-4">Article not found!</p>
@@ -61,5 +63,6 @@
     </div>
     @endforelse
       </div>  
+      {{ $blog->links() }}
     </div>
 </x-layout>
